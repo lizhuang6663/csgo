@@ -1,0 +1,1332 @@
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+a {
+   color: white;
+   text-decoration: none;
+}
+li {
+   list-style: none;
+}
+.w {
+   width: 1200px;
+   height: 100%;
+   margin: 0 auto;
+   /* background-color: pink; */
+}
+body {
+   background-color: rgb(211,217,224);
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 最大的盒子（将所有的模块都套在这个盒子里，保持页面缩小的时候不散架） */
+.page-center {
+   position: relative;
+   width: 1440px;
+   margin: 0 auto;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第一行：快捷导航 */
+.shortcut {
+   /* position: fixed;
+   top: 0; */
+   width: 100%;
+   height: 70px;
+   background-color: black;
+}
+/* logo标志 */
+.shortcut-logo img {
+   float: left;
+   height: 55px;
+   margin-top: 5px;
+}
+
+/* 快捷导航栏 */
+.shortcut-select {
+   position: absolute;/* 子绝父相 */
+   left: 240px;
+}
+.shortcut-select .select {
+   display: inline-block;
+   height: 48px;
+   margin: 20px 0 0 35px;
+   font-size: 18px;
+}
+.shortcut-select-a .sanjiao {
+   float: right;
+   font-family: 'icomoon';
+   color: gray;
+   margin: 3px 0 0 2px;
+   transition: all .5s;
+}
+.shortcut-select .select:hover { /* 链接出现下滑线 */
+   border-bottom: 2px solid skyblue;
+}
+.shortcut-select-a:hover .sanjiao { /* 三角图标旋转 */
+   transform: rotate(180deg);
+}
+
+/* 隐藏的内容 */
+/* 选择具有 class 属性且值以 shortcut-hidden 开头的元素 */
+div[class^="shortcut-hidden"] {
+   position: absolute;
+   overflow: hidden;
+   transition: all .5s;
+   width: 160px;
+   height: 0;
+   color: white;
+   font-size: 17px;
+   background: rgba(25, 24, 24, 0.5);
+   z-index: 5;
+}
+div[class^="shortcut-hidden"] li {
+   display: block;
+   padding: 10px 40px 15px 15px;
+}
+.shortcut-hidden-1 {
+   left: 20px;
+}
+.shortcut-hidden-2 {
+   left: 115px;
+}
+.shortcut-hidden-3 {
+   left: 365px;
+}
+.shortcut-hidden-4 {
+   left: 540px;
+}
+.shortcut-hidden-5 {
+   left: 715px;
+}
+/* 隐藏的盒子出现 */
+.a1:hover~.shortcut-hidden-1 {
+   height: 200px;
+}
+.a2:hover~.shortcut-hidden-2 {
+   height: 150px;
+}
+.a3:hover~.shortcut-hidden-3 {
+   height: 300px;
+}
+.a4:hover~.shortcut-hidden-4 {
+   height: 200px;
+}
+.a5:hover~.shortcut-hidden-5 {
+   height: 100px;
+}
+
+.shortcut-hidden-1:hover {
+   height: 200px;
+}
+.shortcut-hidden-2:hover {
+   height: 150px;
+}
+.shortcut-hidden-3:hover {
+   height: 300px;
+}
+.shortcut-hidden-4:hover {
+   height: 200px;
+}
+.shortcut-hidden-5:hover {
+   height: 100px;
+}
+div[class^="shortcut-hidden"] li:hover {
+   background: rgba(21, 21, 21, 0.5);
+}
+div[class^="shortcut-hidden"] li:first-child {
+   margin-top: 5px;
+}
+div[class^="shortcut-hidden"] li:last-child {
+   margin-bottom: 5px;
+}
+
+/* 登录 */
+.shortcut-sign-in div {
+   float: left;
+   color: white;
+   font-size: 18px;
+   margin: 20px 0 0 950px;
+}
+.shortcut-sign-in a {
+   float: right;
+   color: skyblue;
+   font-size: 18px;
+   margin-top: 20px;
+}
+
+
+
+
+/* ------------------------------------------------------------------------ */
+ /* 第二行：快速指引 */
+.guidance {
+   /* position: sticky;
+   top: 70px; */
+   overflow: hidden;
+   width: 100%;
+   height: 40px;
+   background-color: rgb(38, 41, 52);
+   transition: all 1s;
+}
+.quick-guidance {
+   float: left;
+   margin: 5px 0 0 650px;
+   color: white;
+   font-size: 18px;
+}
+.quick-guidance::after {
+   float: right;
+   content: "";
+   font-family: 'icomoon';
+   margin: 3px 0 0 2px;
+   font-size: 18px;
+   transition: all .5s;
+}
+.quick-guidance:hover::after {
+   transform: rotate(180deg);
+}
+.guidance-hidden {
+   display: block;
+   margin-top: 40px;
+   width: 100%;
+   height: 375px;
+   background-color: rgb(195, 202, 214);
+   transition: all .5s;
+}
+/* 鼠标滑动到 .guidance 时盒子变高 */
+.guidance:hover {
+   height: 415px;
+}
+
+/* 隐藏的内容 */
+/* 隐藏的内容的第一行：新用户 */
+.guidance-hidden-1 {
+   font-size: 20px;
+   height: 50px;
+   padding: 14px 0 0 660px;
+}
+/* 隐藏的内容的第二行 */
+.guidance-hidden-2 {
+   /* 给父盒子添加flex属性，来控制子盒子的位置和排列方式 */
+   display: flex;
+   height: 120px;
+   /* background-color: skyblue; */
+   justify-content: space-between;
+}
+/* 隐藏的内容的第二，四行 的八个盒子是通用的 */
+div[class^="guidance-hidden-box"] {
+   height: 100%;
+   width: 290px;
+   /* background-color: pink; */
+}
+div[class^="guidance-hidden-box"] .up {
+   /* 盒子里的内容垂直居中 */
+   text-align: center;
+   line-height: 40px;
+   height: 40px;
+   width: 100%;
+   background-color: rgb(129, 135, 147);
+   font-size: 54px;
+   color: rgb(79, 84, 95);
+}
+div[class^="guidance-hidden-box"] .down {
+   height: 80px;
+   width: 100%;
+   background-color: rgb(79, 84, 95);
+   overflow: hidden;
+}
+
+.guidance-hidden-box-1 .down div {
+   border: 1px solid black;
+   background-color: rgb(129, 135, 147);
+   width: 175px;
+   height: 30px;
+   font-size: 14px;
+   margin: 30px 0 0 60px;
+}
+.guidance-hidden-box-1 .down div a {
+   margin: 10px 0 0 40px;
+   line-height: 25px;
+}
+.orange {
+   color: rgb(233, 123, 47);
+}
+.guidance-hidden-box-2,
+.guidance-hidden-box-4,
+.guidance-hidden-box-8 {
+   text-align: center;
+   line-height: 80px;
+   font-size: 20px;
+}
+.guidance-hidden-box-3,
+.guidance-hidden-box-5,
+.guidance-hidden-box-6,
+.guidance-hidden-box-7 {
+   text-align: center;
+   line-height: 40px;
+   font-size: 16px;
+}
+
+/* 隐藏的内容的第三行：STEAM用户 */
+.guidance-hidden-3 {
+   font-size: 20px;
+   height: 50px;
+   padding: 14px 0 0 640px;
+}
+
+/* 隐藏的内容的第四行 */
+.guidance-hidden-4 {
+   display: flex;
+   height: 120px;
+   /* background-color: skyblue; */
+   justify-content: space-between;
+}
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第三行：大背景 */
+.bg {
+   position: relative;
+   overflow: hidden;
+   width: 1440px;
+   height: 600px;
+   /* background-color: skyblue; */
+}
+
+/* 背景的横向移动 */
+.bg-move {
+   width: 5760px;
+   height: 600px;
+   background-color: pink;
+   /* 调用动画 */
+   animation-name: bgBecome;
+   /* 动画持续时间 */
+   animation-duration: 18s;
+   /* 匀速 */
+   animation-timing-function: linear;
+   /* 重复 */
+   animation-iteration-count: infinite;
+}
+
+.bg-1,
+.bg-2,
+.bg-3,
+.bg-4 {
+   float: left;
+   width: 1440px;
+   height: 600px;
+}
+
+div[class^="bg-"] img {
+   width: 100%;
+   height: 100%;
+}
+
+@keyframes bgBecome {
+   0% {
+      transform: translateX(0px);
+   }
+
+   10% {
+      transform: translateX(0px);
+   }
+
+   15% {
+      transform: translateX(-1440px);
+   }
+
+   25% {
+      transform: translateX(-1440px);
+   }
+
+   30% {
+      transform: translateX(-2880px);
+   }
+
+   40% {
+      transform: translateX(-2880px);
+   }
+
+   45% {
+      transform: translateX(-4320px);
+   }
+
+   55% {
+      transform: translateX(-4320px);
+   }
+
+   /* 回来 */
+   60% {
+      transform: translateX(-2880px);
+   }
+
+   70% {
+      transform: translateX(-2880px);
+   }
+
+   75% {
+      transform: translateX(-1440px);
+   }
+
+   85% {
+      transform: translateX(-1440px);
+   }
+
+   90% {
+      transform: translateX(0px);
+   }
+
+   100% {
+      transform: translateX(0px);
+   }
+}
+
+/* 大于号，小于号 */
+.jiantou-left,
+.jiantou-right {
+   position: absolute;
+   font-size: 80px;
+   top: 250px;
+   color: rgba(129, 135, 145, 0.7);
+}
+.jiantou-left {
+   left: 180px;
+}
+.jiantou-right {
+   right: 180px;
+}
+.jiantou-left:hover,
+.jiantou-right:hover {
+   color: rgba(230, 235, 250, 1);
+}
+
+/* 下载CS:GO */
+.bg-download {
+   position: absolute;
+   /* display: block; */
+   width: 190px;
+   height: 50px;
+   background-color: rgb(232, 204, 132);
+   margin: 440px 0 0 610px;
+   text-align: center;
+   line-height: 50px;
+   font-size: 26px;
+   color: black;
+   top :0px;
+   /* 调用动画 */
+   animation-name: downloadMove;
+   animation-duration: 2s;
+   animation-iteration-count:infinite;
+}
+@keyframes downloadMove {
+   100% {
+      background-color: orange;
+   }
+}
+
+/* 下面 */
+.bg-select {
+   position: absolute;
+   width: 100px;
+   height: 3px;
+   /* background-color: skyblue; */
+   bottom: 40px;
+   left: 650px;
+}
+.bg-select div {
+   float: left;
+}
+.bg-select div:nth-child(1),
+.bg-select div:nth-child(3) {
+   width: 10px;
+   height: 100%;
+   background-color: rgb(233, 123, 47);
+}
+.bg-select div:nth-child(2) {
+   width: 70px;
+   height: 100%;
+   background-color: white;
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第四行：近期热点 */
+.hotspot ,
+.warCenter{ /* 近期热点  和电竞中心的大盒子  */
+   height: 640px;
+   width: 100%;
+   /* background-color: skyblue; */
+   background-color: rgb(211, 217, 224);
+   overflow: hidden;
+}
+
+/* 顶端 */
+.hotspot-title,
+.warCenter-title,
+.introduce-title{
+   height: 120px;
+   width: 100%;
+   line-height: 120px;
+   text-align: center;
+   /* 改变字体样式 */
+   font-family: "STKaiti";
+   font-size: 43px;
+   /* background-color: pink; */
+}
+
+/* 中间 */
+.hotspot-activity {
+   height: 455px;
+}
+
+/* 中间左边的盒子 */
+.hotspot-activity-left {
+   float: left;
+   width: 720px;
+   height: 450px;
+   background-color: rgb(205, 210, 217);
+}
+
+/* 中间左边的盒子的第一行    以及    中间右边盒子的第一行    以及电竞中心*/
+.hotspot-activity-left-top,
+.hotspot-activity-right-top,
+.warCenter-center-left-top{
+   width: 100%;
+   height: 60px;
+   /* background-color: pink; */
+}
+.hotspot-activity-left-top span,
+.hotspot-activity-right-top span ,
+.warCenter-center-left-top span{
+   margin-left: 70px;
+   line-height: 60px;
+   font-size: 20px;
+   font-weight: 700;
+   /* 加粗 */
+}
+.hotspot-activity-left-top span:nth-child(2),
+.hotspot-activity-right-top span:nth-child(2),
+.hotspot-activity-right-top span:nth-child(3),
+.warCenter-center-left-top span:nth-child(2) {
+   color: white;
+}
+.hotspot-activity-left-top span:hover,
+.hotspot-activity-right-top span:hover,
+.warCenter-center-left-top span:hover {
+   color: black;
+}
+
+/* 中间左边的盒子的第二行 */
+.hotspot-activity-left-center {
+   height: 360px;
+   display: flex;
+   justify-content: space-between;
+}
+
+/* 左边的三个盒子 */
+div[class^="hotspot-activity-left-center-box"] {
+   width: 230px;
+   height: 360px;
+   background-color: skyblue;
+}
+.box-top {
+   width: 100%;
+   height: 25px;
+   background-color: rgb(23, 27, 39);
+   overflow: hidden;
+}
+.box-top div {
+   width: 65px;
+   height: 15px;
+   background-color: rgb(243, 165, 72);
+   font-size: 12px;
+   line-height: 15px;
+   text-align: center;
+   margin: 5px auto;
+   color: black;
+}
+.box-center {
+   width: 230px;
+   height: 290px;
+   /* background-color: pink; */
+   overflow: hidden;
+}
+.box-center img ,
+.warCenter-center-right-top img,
+.source-video-center img ,
+.source-wallpaper-center img{
+   width: 100%;
+   height: 100%;
+   transition: all .8s;
+} 
+/* 图片放大 */
+.box-center img:hover,
+.warCenter-center-right-top img:hover,
+.source-video-center img:hover ,
+.source-wallpaper-center img:hover{
+   transform: scale(1.1);
+}
+.box-down {
+   width: 100%;
+   height: 45px;
+   background-color: rgb(19, 22, 33);
+   font-size: 20px;
+   line-height: 45px;
+   text-align: center;
+}
+
+/* 中间左边的盒子的第三行   以及  中间右边的盒子的第四行  以及电竞中心*/
+.hotspot-activity-left-down,
+.hotspot-activity-right-down,
+.warCenter-center-right-down,
+.source-video-bottom ,
+.source-wallpaper-bottom{
+   width: 100%;
+   height: 30px;
+   background-color: rgb(169, 176, 188);
+   line-height: 30px;
+   text-align: center;
+}
+.hotspot-activity-left-down a,
+.hotspot-activity-right-down a,
+.warCenter-center-left-down a,
+.warCenter-center-right-down a,
+.source-video-bottom a,
+.source-wallpaper-bottom a{
+   color: gray;
+}
+.hotspot-activity-left-down a:hover,
+.hotspot-activity-right-down a:hover,
+.warCenter-center-left-down a:hover,
+.warCenter-center-right-down a:hover,
+.source-video-bottom a:hover ,
+.source-wallpaper-bottom a:hover{
+   color: white;
+}
+
+
+/* 中间右边的盒子 */
+.hotspot-activity-right {
+   float: left;
+   width: 440px;
+   height: 450px;
+   margin-left: 40px;
+   background-color: rgb(205, 210, 217);
+}
+
+/* 中间右边的盒子的第一行(在上面) */
+
+/* 中间右边的盒子的第二行 */
+.hotspot-activity-right-center1 {
+   width: 435px;
+   height: 100px;
+   background-color: rgb(169, 176, 188);
+   line-height: 100px;
+   text-align: center;
+   font-size: 20px;
+}
+.hotspot-activity-right-center1 a {
+   color: black;
+}
+
+/* 中间右边的盒子的第三行 */
+.hotspot-activity-right-center2 {
+   height: 260px;
+   width: 100%;
+   /* background-color: skyblue; */
+   overflow: hidden;
+}
+.hotspot-activity-right-center2 li {
+   display: block;
+   margin: 12px 0 0 10px;
+   /* background-color: pink; */
+   width: 100%;
+   height: 40px;
+   border-bottom: 1px solid gray;
+}
+.hotspot-activity-right-center2 li:last-child {
+   border-bottom: 1px solid transparent;
+}
+.hotspot-activity-right-center2 li a {
+   font-size: 14px;
+   color: black;
+   /* padding:  30px 0 0 10px; */
+}
+.hotspot-activity-right-center2 li a:hover {
+   color: rgb(233, 123, 47);
+}
+
+/* 中间右边的盒子的第四行(在上面) */
+
+/* 底层 */
+.hotspot-down {
+   height: 10px;
+   margin-top: 55px;
+   background-color: rgb(243, 165, 72);
+}
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第五行：电竞中心 */
+/* 顶端在上面 */
+.warCenter-title {
+   background-color: rgb(191,196,205);
+}
+/* 中间左边的盒子 */
+.warCenter-center-left {
+   float: left;
+   width: 680px;
+   height: 490px;
+   background-color: rgb(205, 210, 217);
+   overflow: hidden;
+}
+
+/* 中间左边的盒子的第一行（其他的代码在上面） */
+.warCenter-center-left-top {
+   background-color: rgb(169, 176, 188);
+}
+
+/* 中间左边的盒子的第二行 */
+.warCenter-center-left-center {
+   width: 100%;
+   height: 400px;
+   background-color: rgb(205, 210, 217);
+}
+div[class^="warCenter-center-left-center-box"] {
+   width: 100%;
+   height: 85px;
+   background-color: rgb(195, 201, 209);
+   margin-top: 35px;
+   overflow: hidden;
+}
+
+/* 中间左边的盒子的第二行的三个盒子 */
+div[class^="warCenter-b1"] {
+   float: left;
+   width: 85px;
+   height: 85px;
+   margin-left: 30px;
+   background-color: rgb(59, 81, 102);
+}
+.warCenter-b1 img {
+   width: 100%;
+   height: 100%;
+}
+.warCenter-b2 {
+   color: black;
+   height: 30px;
+   background-color: rgb(205, 210, 217);
+}
+.warCenter-b2 span {
+   float: left;
+   font-size: 20px;
+   margin-left: 30px;
+}
+.warCenter-b2 div {
+   float: left;
+   width: 65px;
+   height: 15px;
+   background-color: rgb(243, 165, 72);
+   margin: 10px 0 0 100px;
+   font-size: 12px;
+   line-height: 15px;
+   text-align: center;
+}
+.warCenter-center-left-center-box3 .warCenter-b2 div {
+   background-color: rgb(97, 213, 250);
+}
+
+.warCenter-b3 {
+   height: 60px;
+   /* background-color: pink; */
+}
+.warCenter-b3 li:nth-child(1) {
+   margin-left: 35px;
+}
+.warCenter-b3 li {
+   display: inline-block;
+   width: 43px;
+   height: 43px;
+   /* background-color: skyblue; */
+   margin-right: 15px;
+   border: 1px solid gray;
+}
+.warCenter-b3 li img {
+   width: 100%;
+   height: 100%;
+}
+.warCenter-b3 div {
+   font-family: 'icomoon';
+   float: left;
+   color: gray;
+   margin: -30px 0 0 470px;
+}
+div[class^="warCenter-center-left-center-box"]:hover {
+   background-color: rgb(247, 249, 254);
+}
+
+/* 中间左边的盒子的第三行（部分在上面） */
+.warCenter-center-left-down {
+   width: 100%;
+   height: 30px;
+   background-color: rgb(169, 176, 188);
+   line-height: 30px;
+   text-align: center;
+   margin-top: -35px;
+}
+
+/* 中间右边的盒子 */
+.warCenter-center-right {
+   display: inline-block;
+   width: 505px;
+   height: 490px;
+   margin-left: 15px;
+   /* background-color: pink; */
+}
+.warCenter-center-right-top div {
+   float: left;
+   width: 250px;
+   height: 460px;
+   overflow: hidden;
+}
+.warCenter-center-right-top div:first-child {
+   margin-right: 5px;
+}
+.warCenter-center-right-down {
+   float: left;
+}
+
+/* 底部 */
+.warCenter-bottom {
+   height: 10px;
+   background-color: rgb(97, 213, 250);
+   margin-top: -130px;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第六行：游戏介绍 */
+.introduce {
+   width: 100%;
+   height: 920px;
+}
+
+/* 中间 */
+.introduce-center {
+   height: 150px;
+   /* background-color: pink; */
+}
+.introduce-center-divide1 {
+   height: 5px;
+   width: 100%;
+   background-color: rgb(169, 176, 188);
+}
+.introduce-center-contentSelect {
+   width: 100%;
+   height: 70px;
+   background-color: rgb(205, 210, 217);
+}
+.introduce-center-contentSelect ul li {
+   display: inline-block;
+   width: 240px;
+   height: 55px;
+   margin-top: 15px;
+   background-color: rgb(169, 176, 188);
+   line-height: 55px;
+   text-align: center;
+   font-size: 25px;
+   font-family: "STKaiti";
+   transition: all .3s;
+}
+.introduce-center-contentSelect ul li a {
+   color: rgb(223, 235, 253);
+}
+.introduce-center-contentSelect ul li:nth-child(1) {
+   background-color: rgb(243, 165, 72);
+}
+.introduce-center-contentSelect ul li:nth-child(1) a {
+   color: black;
+}
+.introduce-center-contentSelect ul li:hover {
+   background-color: rgb(243, 165, 72);
+}
+.introduce-center-contentSelect ul li:hover a {
+   color: black;
+}
+.introduce-gunSelect {
+   width: 100%;
+   height: 70px;
+   /* background-color: skyblue; */
+}
+.introduce-gunSelect li {
+   display: inline-block;
+   height: 70px;
+   /* background-color: red; */
+   margin-left: 30px;
+   transition: all .2s;
+}
+.introduce-gunSelect li:first-child {
+   border-bottom: 5px solid white;
+}
+.introduce-gunSelect li:hover {
+   border-bottom: 5px solid white;
+}
+.introduce-gunSelect li img {
+   padding-top: 20px;
+}
+.introduce-gunSelect li:first-child {
+   margin-left: 400px;
+}
+.introduce-center-divide2 {
+   height: 5px;
+   width: 100%;
+   background-color: rgb(136, 143, 158);
+}
+
+/* 底部 */
+.introduce-bottom {
+   width: 100%;
+   height: 650px;
+   background-color: rgb(196, 201, 210);
+}
+
+/* 底部左边 */
+.introduce-bottom-left {
+   float: left;
+   width: 340px;
+   height: 460px;
+   margin-left: 120px;
+   /* background-color: skyblue; */
+}
+.introduce-bottom-left-1 {
+   width: 100%;
+   height: 60px;
+   /* background-color: pink; */
+   margin-top: 50px;
+}
+.introduce-bottom-left-1 h4 {
+   float: left;
+   color: white;
+   font-size: 50px;
+}
+.introduce-bottom-left-1 img {
+   margin: 10px 0 0 15px;
+}
+.introduce-bottom-left-2 {
+   width: 100%;
+   height: 210px;
+   /* background-color: pink; */
+   margin-top: 30px;
+   overflow: hidden;
+}
+.introduce-bottom-left-2 li {
+   position: relative;
+   width: 100%;
+   height: 27px;
+   background-color: rgb(169, 176, 188);
+   margin-top: 3px;
+}
+.introduce-bottom-left-2 li span {
+   color: white;
+   line-height: 27px;
+   font-size: 14px;
+}
+.introduce-bottom-left-2 li span:nth-child(1) {
+   float: left;
+   margin-left: 5px;
+}
+.introduce-bottom-left-2 li span:nth-child(2) {
+   float: right;
+   margin-right: 5px;
+}
+.introduce-bottom-left-2 li div {
+   position: absolute;
+   top: 2px;
+   height: 23px;
+   background-color: rgba(89, 141, 140, .6);
+}
+.introduce-bottom-left-2 li:nth-child(4) div {
+   width: 35px;
+}
+.introduce-bottom-left-2 li:nth-child(5) div {
+   width: 15px;
+}
+.introduce-bottom-left-2 li:nth-child(6) div {
+   width: 45px;
+}
+.introduce-bottom-left-2 li:nth-child(7) div {
+   width: 235px;
+}
+.introduce-bottom-left-3 {
+   margin-top: 30px;
+   font-size: 14px;
+   color: rgb(56, 59, 69);
+}
+
+/* 底部右边 */
+.introduce-bottom-right {
+   float: left;
+   width: 840px;
+   height: 560px;
+   margin-left: 20px;
+   background-color: rgb(180, 185, 196);
+   /* background-color: skyblue; */
+}
+.introduce-bottom-right-1 {
+   width: 460px;
+   height: 340px;
+   /* background-color: pink; */
+   margin: 70px 0 0 200px;
+}
+.introduce-bottom-right .introduce-gunSelect {
+   width: 100%;
+   height: 100px;
+   /* background-color: pink; */
+   margin-top: 50px;
+}
+.introduce-bottom-right .introduce-gunSelect li {
+   margin-left: 40px;
+}
+.introduce-bottom-right .introduce-gunSelect li:nth-child(1) {
+   margin-left: 40px;
+}
+.introduce-bottom-right .introduce-gunSelect li div {
+   margin-top: 20px;
+   font-size: 14px;
+   color: rgb(120, 131, 146);
+}
+
+/* 分隔线 */
+.introduce-divide {
+   margin-top: -10px;
+   height: 10px;
+   background-color: orange;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第七行：素材中心 */
+.source {
+   width: 100%;
+   height: 680px;
+   background-color: rgb(17, 20, 31);
+   overflow: hidden;
+}
+
+/* 素材中心 */
+.source-word {
+   color: rgb(243, 165, 72);
+   font-family: "STSong";
+   font-size: 40px;
+   margin: 80px 0 0 180px;
+   /* background-color: pink; */
+}
+
+/* 视频 */
+.source-video {
+   float: left;
+   width: 560px;
+   height: 400px;
+   /* background-color: skyblue; */
+   margin: 140px 0 0 140px;
+   overflow: hidden;
+}
+.source-video-top ,
+.source-wallpaper-top {
+   padding-left: 500px;
+   width: 100%;
+   height: 30px;
+   line-height: 30px;
+   font-size: 20px;
+   background-color: rgb(22, 26, 39);
+   color: rgb(97, 213, 250);
+}
+.source-video-center ,
+.source-wallpaper-center{
+   position: relative;
+   width: 100%;
+   height: 340px;
+   border: 1px solid rgb(97, 213, 250);
+   overflow: hidden;
+}
+.source-video-center div {
+   position: absolute;
+   width: 100px;
+   height: 100px;
+   font-family: "icomoon";
+   top: 130px;
+   left: 220px;
+   border-radius: 50%;
+   border: 2px solid white;
+   font-size: 30px;
+   padding-left: 35px;
+   padding-top: 35px;
+   transition: all 1s linear;
+}
+.source-video-center div:hover {
+   border-right-color: black;
+   transform: rotate(360deg);
+}
+.source-video-bottom,
+.source-wallpaper-bottom {
+   background-color: rgb(56, 59, 69);
+}
+
+/* 壁纸 */
+.source-wallpaper {
+   position: relative;
+   float: right;
+   width: 560px;
+   height: 400px;
+   background-color: pink;
+   margin-top: 50px;
+   margin-right: 120px;
+}
+.source-wallpaper-top {
+   color: orange;
+}
+.source-wallpaper-center {
+   border: 0;
+}
+
+.source-wallpaper-center-border {
+   z-index: 1;
+   position: absolute;
+   width: 520px;
+   height: 320px;
+   border: 1px white solid;
+   left: 20px;
+   top: 40px;
+}
+.source-wallpaper-center-border li {
+   display: block;
+   width: 105px;
+   height: 20px;
+   font-size: 12px;
+   /* color: gray; */
+   line-height: 20px;
+   text-align: center;
+   border: 1px solid white;
+   margin: 10px 0 0 30px;
+}
+.source-wallpaper-center-border li:first-child {
+   margin-top: 30px;
+}
+.source-wallpaper-center-border li:hover {
+   background-color: white;
+   color: black;
+}
+.source-wallpaper-center-border:hover ~ .source-wallpaper-center img {
+   transform: scale(1.1);
+}
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第八行：攻略 */
+.help {
+   position: relative;
+   width: 100%;
+   height: 400px;
+   background-color: rgb(18, 20, 30);
+   overflow: hidden;
+}
+
+/* 隔开 */
+.help-space {
+   height: 10px;
+   background-color: rgb(23, 27, 42)
+}
+/* 攻略文字 */
+.help-word {
+   position: absolute;
+   font-size: 25px;
+   color: orange;
+   left: 430px;
+   top: 15px;
+}
+
+/* 三个盒子 */
+.help-box {
+   height: 130px;
+   margin-left: 940px;
+}
+.help-box-QRcode {
+   width: 110px;
+   height: 110px;
+   float: left;
+   margin: 10px 0 0 380px;
+}
+.help-box2 {
+   background-color: rgb(23, 27, 42);
+}
+.QR1 {
+   border: 2px orange solid;
+}
+.QR2 {
+   border: 2px skyblue solid;
+}
+.QR3 {
+   border: 2px red solid;
+}
+.help-box-QRcode img {
+   width: 100%;
+   height: 100%;
+}
+
+/* 二维码后面的文字 */
+.help-box h4,
+p {
+   float: left;
+   color: rgb(191, 204, 223);
+   margin-left: 30px;
+}
+.help-box h4 {
+   font-size: 25px;
+   margin-top: 30px;
+}
+
+/* 三个盒子调用动画 */
+.help-box {
+   animation-name: help-box-move;
+   /* 动画结束后保持位置 */
+   animation-fill-mode: forwards;
+}
+.help-box1 {
+   animation-duration: 2s;
+}
+.help-box2 {
+   animation-duration: 3s;
+}
+.help-box3 {
+   animation-duration: 4s;
+}
+@keyframes help-box-move {
+   0% {
+      transform: translateX(0px);
+   }
+   100% {
+      transform: translateX(-800px);
+   }
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第九行：各种小图标 */
+.icon {
+   width: 100%;
+   height: 220px;
+   background-color: rgb(15, 17, 26);
+}
+.icon li:nth-child(1) {
+   margin-left: 150px;
+}
+.icon li:nth-child(5) {
+   margin-left: 160px;
+}
+.icon li {
+   display: inline-block;
+   margin-top: 90px;
+   margin-left: 40px;
+   font-family: "icomoon";
+}
+.icon span {
+   color: rgb(216, 216, 217);
+   float: left;
+}
+.icon-s1 {
+   font-size: 40px;
+   margin-top: 10px;
+}
+.icon-s2 {
+   font-size: 12px;
+   margin: 20px 0 0 20px;
+}
+.icon a:hover span {
+   color: white;
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+/* 第十行：版权 */
+.copyright {
+   width: 100%;
+   height: 170px;
+   background-color: black;
+   overflow: hidden;
+}
+.copyright-top {
+   height: 40px;
+   margin-top: 20px;
+   /* background-color: pink; */
+}
+.copyright-top img {
+   float: left;
+   margin-left: 20px;
+}
+.copyright-top p {
+   font-size: 8px;
+   color: gray;
+}
+.copyright-bottom {
+   height: 100px;
+   /* background-color: skyblue; */
+   font-size: 8px;
+   color: gray;
+}
+.copyright-bottom a {
+   color: rgb(109, 188, 244);
+}
+.copyright-bottom-a1 {
+   margin-left: 200px;
+}
+.copyright-bottom-a2 {
+   margin-left: 170px;
+}
+.copyright-bottom span:last-child {
+   float: left;
+   margin-left: 320px;
+   margin-top: 20px;
+}
+
